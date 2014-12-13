@@ -1729,12 +1729,12 @@ riscv_elf_relocate_section (bfd *output_bfd, struct bfd_link_info *info,
 	}
       else
 	{
-	  bfd_boolean warned;
+	  bfd_boolean warned, ignored;
 
 	  RELOC_FOR_GLOBAL_SYMBOL (info, input_bfd, input_section, rel,
 				   r_symndx, symtab_hdr, sym_hashes,
 				   h, sec, relocation,
-				   unresolved_reloc, warned);
+				   unresolved_reloc, warned, ignored);
 	  if (warned)
 	    {
 	      /* To avoid generating warning messages about truncated
@@ -2911,7 +2911,7 @@ fail:
 #define ELF_MAXPAGESIZE			0x2000
 #define ELF_COMMONPAGESIZE		0x2000
 
-#define TARGET_LITTLE_SYM		bfd_elfNN_riscv_vec
+#define TARGET_LITTLE_SYM		riscv_elfNN_vec
 #define TARGET_LITTLE_NAME		"elfNN-littleriscv"
 
 #define elf_backend_reloc_type_class	     riscv_reloc_type_class
